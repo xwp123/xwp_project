@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			
+			<my-head v-on:hand-child="handparent" :me="message1" :my-So="message2"></my-head>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+     <script type="text/javascript">
+     	Vue.component("my-head",{
+     		name:"my-head",
+     		template:`
+     		<div>
+     		<div @click="$emit('hand-child',message3)" class="left">{{  me  }} </div>
+     		<div  @click="handlick4" class="right">{{  mySo  }} </div>
+     		<p>{{ message4 }}</p>
+     		</div>
+     		`,
+     		data:function(){
+     			return{
+     				message3:"我是子组件的数据",
+     				message4:"asdf",
+     				zhongjianbianliang:null
+
+     			}
+     		},
+     		methods:{
+     			handlick4:function(){
+     				this.zhongjianbianliang=this.mySo,
+     				this.message4=this.zhongjianbianliang,
+     				console.log(this.message4)
+     			}
+     		},
+     		computed:{
+     			
+     		},
+     		props:{
+     			me:{
+     				type:String,
+     				default:""
+     			},
+     			mySo:{
+     				type:String,
+     				default:""
+     			}
+     		}
+     		
+     	})
+     	new Vue({
+     		el:".wrap",
+     		data:function(){
+     			return{
+     				message1:"今天天气正好",
+     				message2:"明天天气真好"
+     			}
+     		},
+     		methods:{
+     			handparent:function(data){
+     				this.message1=data
+     			}
+     		}
+     	})
+     </script>
+
+</html>

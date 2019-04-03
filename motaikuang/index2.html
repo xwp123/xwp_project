@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.zong{
+			width: 100%;
+			height: 100%;
+			background-color: darkgrey;
+			opacity: 0.7;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		.motai{
+			width: 500px;
+			height: 400px;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background-color: white;
+		}
+		h2{
+			text-align: center;
+		}
+		.motai textarea{
+			width: 400px;
+			height: 70px;
+			margin-left:50px;
+			margin-top: 70px;
+		}
+		button{
+			margin-top: 50px;
+			margin-left: 180px;
+		}
+	</style>
+	<body>
+		<div class="wrap">
+			
+				<my-head></my-head>
+				
+		</div>
+	
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			Vue.component("my-head",{
+     		name:"my-head",
+     		template:`
+     		<div>
+     		<input type="text" v-model="neirong" value=""/>
+			
+			<input type="submit" value="提交" @click="dianji">
+     		<div class="zong"  v-if="flag">
+     		  <div class="motai">
+     		     <div class="top">
+     		        <h2>登陆界面</h2>
+     		      </div>
+     		     <div class="mid">
+     		     <textarea>{{ neirong }}</textarea>
+     		     </div>
+     		     <div class="down">
+     		       <button>提交</button>
+     		     </div>
+     		  </div>
+     		 </div>
+     		</div>`,
+     		data:function(){
+     			return{
+     			neirong:"",
+     			flag:false
+     			}
+     		},
+     		computed:{
+     			
+     		},
+     		methods:{
+     			dianji:function(){
+     				this.flag=true
+     			}
+     		},
+
+     		
+     	})
+     	new Vue({
+     		el:".wrap",
+     		data:function(){
+     			return{
+
+     			}
+     		},
+     		methods:{
+     			
+     		}
+     	})
+	</script>
+</html>

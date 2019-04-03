@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="" v-if="flag2" @click="da">
+				sdfsadf
+			</div>
+			<my-header :me="message1" :children-Me="message"></my-header>
+		</div>
+		
+		
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		 Vue.component("my-header",{
+		 	name:"my-header",
+		 	template:`
+		 	<div>
+		 	<div class="left" v-if="flag" @click="dianji">{{ childrenMe }}</div>
+		 	<div class="right"> {{ me }}</div>
+		 	</div>
+		 	    `,
+		 	    data:function(){
+ 		 	    	return{
+                     flag:true	
+		 	    	}
+		 	    },
+		 	   methods:{
+		 	   	dianji:function(){
+//		 	   		this.flag=false
+		 	   	}
+		 	   },
+//		 	   props:["me","childrenMe"]
+
+props:{
+	me:{
+		type:String,
+		default:""
+	},
+	childrenMe:{
+		type:Number,
+		default:0
+	}
+}
+		 	
+		 })
+	new Vue({
+		el:".wrap",
+		data:function(){
+			return{
+				message:12,
+				message1:"欢迎来到动物王国",
+				flag2:true
+				
+			}
+		},
+ methods:{
+		 	   	da:function(){
+		 	   		this.flag2=false
+		 	   	}
+		 	   }
+
+		,watch:{
+			flag2:function(newValue,oldValue){
+				console.log("新",newValue,"旧",oldValue)
+			}
+		}
+		
+	})
+		</script>
+</html>

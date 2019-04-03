@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+	<div class="wrap">
+		<my-head ></my-head>
+	</div>
+		
+		
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+     <script type="text/javascript">
+     	Vue.component("my-head",{
+     		name:"my-head",
+     		template:`
+     		<div  class="yemian">
+     		<input @click="handclick3" v-if="handif3" type="submit" value="点击"/>
+     		<div>
+     		    <div class="motaikuang " v-if="handif">
+     		<a><span @click="handclick2">x</span></a>
+     		<input v-model="handmodel" type="text" value=""/><br/>
+     		<button @click="handclick">{{ buttonvalue }}</button>
+     		</div>
+     		</div>
+     		
+     		<div v-if="handif2" class="neirong">
+     		<li>{{ handmodel }}</li>
+     		
+     		</div>
+     		</div>
+     		`,
+     		data:function(){
+     			return{
+     			message1:this.handmodel, 
+     			buttonvalue:"提交"	,
+     			handif:false,
+     			handif2:false,
+     			handif3:true,
+     			handmodel:""
+     			}
+     		},
+             methods:{
+              handclick:function(){
+              	
+              	this.handif=false,
+              	this.handif2=true
+              },
+             handclick2:function(){
+             	this.handif=false
+             },
+             handclick3:function(){
+             	this.handif3=false,
+             	this.handif=true
+             }
+             }, 
+     		props:{
+//   			todo:{
+//   				type:String,
+//   				default:""
+//   			},
+//   			mySo:{
+//   				type:String,
+//   				default:""
+//   			}
+     		}
+     		
+     	})
+     	new Vue({
+     		el:".wrap",
+     		data:function(){
+     			return{
+//   				message1:this.handmodel 
+//   				message2:"明天天气真好"
+               
+     			}
+     		}
+     	})
+     </script>
+</html>

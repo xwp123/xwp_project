@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="warp">
+			{{ message }}
+			<div class="asd" v-if="haha">
+				<p v-bind:title="tian">{{ message }}</p>
+			</div>
+			<ul>
+				<li @click="dianji(index)" v-for="(value,index) in list" :key="index" > {{value.text}}</li>
+			</ul>
+			<div>
+				<input v-model="haha" type="text" value="">
+			</div>
+			
+		</div>
+	</body>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+     <script type="text/javascript">
+     	new Vue({
+     		el:"#warp",
+     		data:function(){
+     			return{
+     				message:"sdf",
+     				message:"sdf",
+     				tian:"今天天气时正好",
+     				haha:true,
+     				list:[
+     				{text:"学号vue"},
+     				{text:"学号vue"},
+     				{text:"学号vue"},
+     				{text:"学号vue"}
+     				],
+     				haha:""
+     				
+     			}
+     		},
+     		methods:{
+     			dianji:function(index){
+     				var date={text:this.haha}
+     				this.list.push(date)	
+     			}
+     		}
+     		
+     	})
+     </script>
+</html>
